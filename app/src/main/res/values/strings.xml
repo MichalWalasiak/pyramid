@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">pyramid</string>
+    <string name="add_set_button">add set</string>
+    <string name="see_history_button">see history</string>
+</resources>
