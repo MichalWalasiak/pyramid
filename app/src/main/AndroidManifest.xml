@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pyramid">
         <activity
-            android:name=".LevelsView"
+            android:name=".LevelsActivity"
             android:parentActivityName=".MainActivity"/>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
