@@ -11,13 +11,174 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="numberSigned"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintHorizontal_bias="0.200"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055" />
+
+    <TextView
+        android:id="@+id/firstLevel"
+        android:layout_width="630dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-black"
+        android:inputType="text"
+        android:textAlignment="viewStart"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterNumber"
+        app:layout_constraintVertical_bias="0.018" />
+
+    <TextView
+        android:id="@+id/secondLevel"
+        android:layout_width="630dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-black"
+        android:inputType="text"
+        android:textAlignment="viewStart"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstLevel"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <TextView
+        android:id="@+id/thirdLevel"
+        android:layout_width="630dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-black"
+        android:inputType="text"
+        android:textAlignment="viewStart"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondLevel"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <TextView
+        android:id="@+id/fourthLevel"
+        android:layout_width="630dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-black"
+        android:inputType="text"
+        android:textAlignment="viewStart"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thirdLevel"
+        app:layout_constraintVertical_bias="0.029" />
+
+    <TextView
+        android:id="@+id/fifthLevel"
+        android:layout_width="630dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-black"
+        android:inputType="text"
+        android:textAlignment="viewStart"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fourthLevel"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <TextView
+        android:id="@+id/sixthLevel"
+        android:layout_width="630dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-black"
+        android:inputType="text"
+        android:textAlignment="viewStart"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fifthLevel"
+        app:layout_constraintVertical_bias="0.038" />
+
+
+    <TextView
+        android:id="@+id/seventhLevel"
+        android:layout_width="630dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-black"
+        android:inputType="text"
+        android:textAlignment="viewStart"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sixthLevel"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <TextView
+        android:id="@+id/eighthLevel"
+        android:layout_width="630dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="19sp"
+        android:fontFamily="sans-serif-black"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.400"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seventhLevel"
+        app:layout_constraintVertical_bias="0.250" />
+
+    <TextView
+        android:id="@+id/ninethLevel"
+        android:layout_width="630dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="19sp"
+        android:fontFamily="sans-serif-black"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.400"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/eighthLevel"
+        app:layout_constraintVertical_bias="0.250" />
+
+    <TextView
+        android:id="@+id/tenthLevel"
+        android:layout_width="630dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="19sp"
+        android:fontFamily="sans-serif-black"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.400"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ninethLevel"
+        app:layout_constraintVertical_bias="0.250" />
 
     <Button
         android:id="@+id/addNumber"
@@ -30,5 +191,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.051" />
-    //app:layout_constraintVertical_bias="150" />
+
+    <Button
+        android:id="@+id/seeLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/see_level"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addNumber"
+        app:layout_constraintVertical_bias="0.051" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
