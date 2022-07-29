@@ -181,10 +181,10 @@
         app:layout_constraintVertical_bias="0.250" />
 
     <Button
-        android:id="@+id/addNumber"
+        android:id="@+id/add1Level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_number_to_set"
+        android:text="@string/add_1_level"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.942"
@@ -193,15 +193,51 @@
         app:layout_constraintVertical_bias="0.051" />
 
     <Button
-        android:id="@+id/seeLevel"
+        android:id="@+id/add2Level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/see_level"
+        android:text="@string/add_2_level"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addNumber"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintTop_toBottomOf="@id/add1Level"
+        app:layout_constraintVertical_bias="0.050" />
+
+    <Button
+        android:id="@+id/add3Level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_3_level"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add2Level"
+        app:layout_constraintVertical_bias="0.050" />
+
+    <Button
+        android:id="@+id/add4Level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_4_level"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add3Level"
+        app:layout_constraintVertical_bias="0.050" />
+
+    <Button
+        android:id="@+id/saveNumbers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_numbers"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.030"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.050" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
