@@ -5,8 +5,9 @@ import android.content.SharedPreferences
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import com.mwalasiak.pyramid.databinding.ActivityLevelsViewBinding
 
 
@@ -19,94 +20,158 @@ class LevelsActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         binding.saveNumbers.setOnClickListener { saveNumbersToTmpList() }
-        binding.add1Level.setOnClickListener { fillFirstLevel() }
-        binding.add2Level.setOnClickListener { fillSecondLevel() }
-        binding.add3Level.setOnClickListener { fillThirdLevel() }
-        binding.add4Level.setOnClickListener { fillFourthLevel() }
+        binding.addLevels.setOnClickListener { fillAllLevels() }
+
+    }
+
+    private fun fillAllLevels() {
+        fillTenthLevel()
+        fillNinthLevel()
+        fillEighthLevel()
+        fillSeventhLevel()
+        fillSixthLevel()
+        fillFifthLevel()
+        fillFourthLevel()
+        fillThirdLevel()
+        fillSecondLevel()
+        fillFirstLevel()
     }
 
     private fun fillFirstLevel() {
-        val firstLevelList: MutableList<String>
-        val text = getList("tmpList", "tmpList").toString().replace(",", " ").removeSurrounding("[[", "]]")
-        firstLevelList = listOf(text?.split(",").toString()).toMutableList()
-        setList(firstLevelList, "1levelFile", "1-level-list")
-        binding.firstLevel.text = getList("1levelFile", "1-level-list").toString().replace(",", " ").removeSurrounding("[[", "]]")
+        if (verifySharedPref(TMP_LIST) && getTextView(binding.enterNumber.id).text.isNotEmpty()) {
+            val text = getList(TMP_LIST)
+            setList(text, FIRST_LEVEL_KEY)
+            binding.firstLevel.text = getList(FIRST_LEVEL_KEY)?.replace(",", " ")
+            binding.enterNumber.clear()
+            binding.addLevels.isEnabled = false
+        } else
+            binding.firstLevel.text = EMPTY_LIST_TEXT
+
     }
 
     private fun fillSecondLevel() {
-        val tmpList = compareLevels(getList("1levelFile", "1-level-list"), getList("tmpList", "tmpList"))
-        //setList(tmpList, "2levelFile", "2-level-list")
-        val text = tmpList.toString().replace(",", " ").removeSurrounding("[[", "]]")
-        val secondLevelList = listOf(text?.split(",").toString()).toMutableList()
-        setList(secondLevelList, "2levelFile", "2-level-list")
-        binding.secondLevel.text = getList("2levelFile", "2-level-list").toString().replace(",", " ").removeSurrounding("[[[", "]]]")
+        fillLevels(FIRST_LEVEL_KEY, SECOND_LEVEL_KEY, binding.secondLevel.id)
     }
 
     private fun fillThirdLevel() {
-        val list = getList("2levelFile", "2-level-listzaa`")
-        val tmpList = compareLevels(getList("2levelFile", "2-level-list"), getList("tmpList", "tmpList"))
-        //setList(tmpList, "3levelFile", "3-level-list")
-        val text = tmpList.toString().replace(",", " ").removeSurrounding("[[", "]]")
-        val thirdLevelList = listOf(text?.split(",").toString()).toMutableList()
-        setList(thirdLevelList, "3levelFile", "3-level-list")
-        binding.thirdLevel.text = getList("3levelFile", "3-level-list").toString().replace(",", " ").removeSurrounding("[[", "]]")
+        fillLevels(SECOND_LEVEL_KEY, THIRD_LEVEL_KEY, binding.thirdLevel.id)
     }
 
     private fun fillFourthLevel() {
-        val tmpList = compareLevels(getList("3levelFile", "3-level-list"), getList("tmpList", "tmpList"))
-        //setList(tmpList, "4levelFile", "4-level-list")
-        val text = tmpList.toString().replace(",", " ").removeSurrounding("[[", "]]")
-        val fourthLevelList = listOf(text?.split(",").toString()).toMutableList()
-        setList(fourthLevelList, "4levelFile", "4-level-list")
-        binding.fourthLevel.text = getList("4levelFile", "4-level-list").toString().replace(",", " ").removeSurrounding("[[[", "]]]")
+        fillLevels(THIRD_LEVEL_KEY, FOURTH_LEVEL_KEY, binding.fourthLevel.id)
     }
+
+    private fun fillFifthLevel() {
+        fillLevels(FOURTH_LEVEL_KEY, FIFTH_LEVEL_KEY, binding.fifthLevel.id)
+    }
+
+    private fun fillSixthLevel() {
+        fillLevels(FIFTH_LEVEL_KEY, SIXTH_LEVEL_KEY, binding.sixthLevel.id)
+    }
+
+    private fun fillSeventhLevel() {
+        fillLevels(SIXTH_LEVEL_KEY, SEVENTH_LEVEL_KEY, binding.seventhLevel.id)
+    }
+
+    private fun fillEighthLevel() {
+        fillLevels(SEVENTH_LEVEL_KEY, EIGHTH_LEVEL_KEY, binding.eighthLevel.id)
+    }
+
+    private fun fillNinthLevel() {
+        fillLevels(EIGHTH_LEVEL_KEY, NINTH_LEVEL_KEY, binding.ninethLevel.id)
+    }
+
+    private fun fillTenthLevel() {
+        fillLevels(NINTH_LEVEL_KEY, TENTH_LEVEL_KEY, binding.tenthLevel.id)
+    }
+
+    private fun fillLevels(previousLevel:String, currentLevel:String, id: Int) {
+        if (verifySharedPref(previousLevel) && getTextView(binding.enterNumber.id).text.isNotEmpty()){
+            val tmpList = compareLevels(getList(previousLevel), getList(TMP_LIST))
+            setList(tmpList, currentLevel)
+            getTextView(id).text = getList(currentLevel)?.replace(",", " ")
+            binding.saveNumbers.isEnabled = true
+            binding.addLevels.isEnabled = false
+        }else
+            getTextView(id).text = EMPTY_LIST_TEXT
+
+    }
+
+    private fun getTextView(id: Int) = binding.root.findViewById<TextView>(id)
 
     private fun saveNumbersToTmpList() {
-        val tmpList: MutableList<String>
-        val delim = ","
-        val text = binding.enterNumber.text
-        tmpList = listOf(text?.split(delim).toString()).toMutableList()
-        setList(tmpList, "tmpList", "tmpList")
-
+        val textFromInput = binding.enterNumber.text.toString()
+        if (textFromInput.isNotEmpty()){
+            setList(textFromInput, TMP_LIST)
+            binding.saveNumbers.isEnabled = false
+            binding.addLevels.isEnabled = true
+        }else
+            setToastMessage()
     }
 
-    private fun setList(list: MutableList<String>?, sharedPrefFileName: String, listName: String) {
-        var editor = setSharedPreferences(sharedPrefFileName).edit()
-        val gson = Gson()
-        val json = gson.toJson(list)
-        editor.putString(listName, json)
-        editor.commit()
+    private fun setList(stringWithNumbers: String?, listKey: String) {
+        val editor = setSharedPreferences().edit()
+        editor.putString(listKey, stringWithNumbers)
+        editor.apply()
     }
 
-    private fun getList(sharedPrefFileName: String, listName: String): MutableList<String> {
-        val gson = Gson()
-        val json = setSharedPreferences(sharedPrefFileName).getString(listName, null)
-        val type = object :TypeToken<MutableList<String>>(){}.type
-        return gson.fromJson(json, type)
+    private fun getList(listName: String): String? {
+        return setSharedPreferences().getString(listName, null)
     }
 
-    private fun compareLevels(listA: MutableList<String>, listB: MutableList<String>): MutableList<String>? {
-        var finalList: MutableList<String>? = null
-        val textA = listA.toString().removeSurrounding("[[", "]]")
-        var resultA: MutableList<String> = textA.trim().split(" ").filter { it.isNotEmpty() }.toMutableList()
-        finalList = resultA.toCollection(mutableListOf())
+    private fun compareLevels(
+        listA: String?,
+        listB: String?,
+    ): String {
 
-        val textB = listB.toString().replace(",", " ").removeSurrounding("[[", "]]")
-        var resultB: MutableList<String> = textB.trim().split(" ").filter { it.isNotEmpty() }.toMutableList()
+        val level = listA?.split(",")?.map { it.toInt() }?.toMutableList()
+        val currentDraw = listB?.split(",")?.map { it.toInt() }?.toList()
+        val copyOfLevel = level?.toMutableList()
 
-        for (i in resultA.indices){
-            var tmpValue = resultA[i]
-            for (j in resultB.indices){
-                if (tmpValue == resultB[j]){
-                    finalList.remove(tmpValue)
+        for (i in level!!.indices) {
+            val tmpValue = level[i]
+            for (j in currentDraw!!.indices) {
+                if (tmpValue == currentDraw[j]) {
+                    copyOfLevel?.remove(tmpValue)
                     break
                 }
             }
         }
-        return finalList
+
+        return copyOfLevel.toString().replace(" ", "").removeSurrounding("[", "]")
     }
 
-    private fun setSharedPreferences(name: String): SharedPreferences {
-        return getSharedPreferences(name, Context.MODE_PRIVATE)
+    private fun setSharedPreferences(): SharedPreferences {
+        return getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
+    }
+
+    private fun verifySharedPref(key: String): Boolean {
+        val sharedValue = setSharedPreferences()
+        val prefKeyName = sharedValue.getString(key, null)
+        return prefKeyName != null
+    }
+
+    private fun setToastMessage() {
+        val emptySaveNumbersInput = Toast.makeText(applicationContext, NO_NUMBERS_INPUT, Toast.LENGTH_SHORT)
+        emptySaveNumbersInput.show()
+    }
+
+    private fun EditText.clear() {text.clear()}
+
+    companion object {
+        const val FILE_NAME = "Levels"
+        const val TMP_LIST = "tmp_list"
+        const val FIRST_LEVEL_KEY = "first-level"
+        const val SECOND_LEVEL_KEY = "second-level"
+        const val THIRD_LEVEL_KEY = "third-level"
+        const val FOURTH_LEVEL_KEY = "fourth-level"
+        const val FIFTH_LEVEL_KEY = "fifth-level"
+        const val SIXTH_LEVEL_KEY = "sixth-level"
+        const val SEVENTH_LEVEL_KEY = "seventh-level"
+        const val EIGHTH_LEVEL_KEY = "eighth-level"
+        const val NINTH_LEVEL_KEY = "ninth-level"
+        const val TENTH_LEVEL_KEY = "tenth-level"
+        const val EMPTY_LIST_TEXT = "all numbers were already drowned"
+        const val NO_NUMBERS_INPUT = "please add numbers"
     }
 }
