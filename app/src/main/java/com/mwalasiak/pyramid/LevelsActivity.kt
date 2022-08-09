@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.mwalasiak.pyramid.api.LottoApi
+import com.mwalasiak.pyramid.api.OkHttpLoggingInterceptor
 import com.mwalasiak.pyramid.databinding.ActivityLevelsViewBinding
 
 
@@ -21,6 +23,7 @@ class LevelsActivity : AppCompatActivity() {
         setContentView(view)
         binding.saveNumbers.setOnClickListener { saveNumbersToTmpList() }
         binding.addLevels.setOnClickListener { fillAllLevels() }
+        binding.getNumbersFromLottoService.setOnClickListener { getNumbersFromLottoService() }
 
     }
 
@@ -124,21 +127,25 @@ class LevelsActivity : AppCompatActivity() {
         listB: String?,
     ): String {
 
-        val level = listA?.split(",")?.map { it.toInt() }?.toMutableList()
-        val currentDraw = listB?.split(",")?.map { it.toInt() }?.toList()
-        val copyOfLevel = level?.toMutableList()
+        if (listA!!.isNotEmpty()){
+            val level = listA.split(",").map { it.toInt() }.toMutableList()
+            val currentDraw = listB?.split(",")?.map { it.toInt() }?.toList()
+            val copyOfLevel = level.toMutableList()
 
-        for (i in level!!.indices) {
-            val tmpValue = level[i]
-            for (j in currentDraw!!.indices) {
-                if (tmpValue == currentDraw[j]) {
-                    copyOfLevel?.remove(tmpValue)
-                    break
+            for (i in level.indices) {
+                val tmpValue = level[i]
+                for (j in currentDraw!!.indices) {
+                    if (tmpValue == currentDraw[j]) {
+                        copyOfLevel.remove(tmpValue)
+                        break
+                    }
                 }
             }
-        }
 
-        return copyOfLevel.toString().replace(" ", "").removeSurrounding("[", "]")
+            return copyOfLevel.toString().replace(" ", "").removeSurrounding("[", "]")
+        }else
+            return EMPTY_LIST_TEXT
+
     }
 
     private fun setSharedPreferences(): SharedPreferences {
@@ -154,6 +161,12 @@ class LevelsActivity : AppCompatActivity() {
     private fun setToastMessage() {
         val emptySaveNumbersInput = Toast.makeText(applicationContext, NO_NUMBERS_INPUT, Toast.LENGTH_SHORT)
         emptySaveNumbersInput.show()
+    }
+
+    private fun getNumbersFromLottoService() {
+        viewModelScope.launch{
+            val numbers = LottoApi.retrofitService.getLatestMultiMultiNumbers()
+        }
     }
 
     private fun EditText.clear() {text.clear()}

@@ -3,4 +3,6 @@
     <string name="add_set_button">add set</string>
     <string name="see_history_button">see history</string>
     <string name="add_levels">add levels</string>
+    <string name="save_numbers">save numbers</string>
+    <string name="get_latest_numbers">get numbers</string>
 </resources>
