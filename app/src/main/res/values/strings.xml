@@ -2,7 +2,7 @@
     <string name="app_name">pyramid</string>
     <string name="add_set_button">add set</string>
     <string name="see_history_button">see history</string>
-    <string name="add_number_to_set">add number</string>
-    <string name="see_level">see level</string>
-    <string name="firstlevel">first level</string>
+    <string name="add_levels">add levels</string>
+    <string name="save_numbers">save numbers</string>
+    <string name="get_latest_numbers">get numbers</string>
 </resources>
