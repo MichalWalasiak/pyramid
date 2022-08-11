@@ -8,8 +8,6 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.mwalasiak.pyramid.api.LottoApi
-import com.mwalasiak.pyramid.api.OkHttpLoggingInterceptor
 import com.mwalasiak.pyramid.databinding.ActivityLevelsViewBinding
 
 
@@ -23,8 +21,18 @@ class LevelsActivity : AppCompatActivity() {
         setContentView(view)
         binding.saveNumbers.setOnClickListener { saveNumbersToTmpList() }
         binding.addLevels.setOnClickListener { fillAllLevels() }
-        binding.getNumbersFromLottoService.setOnClickListener { getNumbersFromLottoService() }
+        //binding.getNumbersFromLottoService.setOnClickListener { getNumbersFromLottoService() }
 
+    }
+
+    private fun saveNumbersToTmpList() {
+        val textFromInput = binding.enterNumber.text.toString()
+        if (textFromInput.isNotEmpty()){
+            setList(textFromInput, TMP_LIST)
+            binding.saveNumbers.isEnabled = false
+            binding.addLevels.isEnabled = true
+        }else
+            setToastMessage()
     }
 
     private fun fillAllLevels() {
@@ -40,8 +48,44 @@ class LevelsActivity : AppCompatActivity() {
         fillFirstLevel()
     }
 
+    private fun fillTenthLevel() {
+        fillLevel(NINTH_LEVEL_KEY, TENTH_LEVEL_KEY, binding.tenthLevel)
+    }
+
+    private fun fillNinthLevel() {
+        fillLevel(EIGHTH_LEVEL_KEY, NINTH_LEVEL_KEY, binding.ninethLevel)
+    }
+
+    private fun fillEighthLevel() {
+        fillLevel(SEVENTH_LEVEL_KEY, EIGHTH_LEVEL_KEY, binding.eighthLevel)
+    }
+
+    private fun fillSeventhLevel() {
+        fillLevel(SIXTH_LEVEL_KEY, SEVENTH_LEVEL_KEY, binding.seventhLevel)
+    }
+
+    private fun fillSixthLevel() {
+        fillLevel(FIFTH_LEVEL_KEY, SIXTH_LEVEL_KEY, binding.sixthLevel)
+    }
+
+    private fun fillFifthLevel() {
+        fillLevel(FOURTH_LEVEL_KEY, FIFTH_LEVEL_KEY, binding.fifthLevel)
+    }
+
+    private fun fillFourthLevel() {
+        fillLevel(THIRD_LEVEL_KEY, FOURTH_LEVEL_KEY, binding.fourthLevel)
+    }
+
+    private fun fillThirdLevel() {
+        fillLevel(SECOND_LEVEL_KEY, THIRD_LEVEL_KEY, binding.thirdLevel)
+    }
+
+    private fun fillSecondLevel() {
+        fillLevel(FIRST_LEVEL_KEY, SECOND_LEVEL_KEY, binding.secondLevel)
+    }
+
     private fun fillFirstLevel() {
-        if (verifySharedPref(TMP_LIST) && getTextView(binding.enterNumber.id).text.isNotEmpty()) {
+        if (verifySharedPref(TMP_LIST) && binding.enterNumber.text.isNotEmpty()) {
             val text = getList(TMP_LIST)
             setList(text, FIRST_LEVEL_KEY)
             binding.firstLevel.text = getList(FIRST_LEVEL_KEY)?.replace(",", " ")
@@ -52,74 +96,16 @@ class LevelsActivity : AppCompatActivity() {
 
     }
 
-    private fun fillSecondLevel() {
-        fillLevels(FIRST_LEVEL_KEY, SECOND_LEVEL_KEY, binding.secondLevel.id)
-    }
-
-    private fun fillThirdLevel() {
-        fillLevels(SECOND_LEVEL_KEY, THIRD_LEVEL_KEY, binding.thirdLevel.id)
-    }
-
-    private fun fillFourthLevel() {
-        fillLevels(THIRD_LEVEL_KEY, FOURTH_LEVEL_KEY, binding.fourthLevel.id)
-    }
-
-    private fun fillFifthLevel() {
-        fillLevels(FOURTH_LEVEL_KEY, FIFTH_LEVEL_KEY, binding.fifthLevel.id)
-    }
-
-    private fun fillSixthLevel() {
-        fillLevels(FIFTH_LEVEL_KEY, SIXTH_LEVEL_KEY, binding.sixthLevel.id)
-    }
-
-    private fun fillSeventhLevel() {
-        fillLevels(SIXTH_LEVEL_KEY, SEVENTH_LEVEL_KEY, binding.seventhLevel.id)
-    }
-
-    private fun fillEighthLevel() {
-        fillLevels(SEVENTH_LEVEL_KEY, EIGHTH_LEVEL_KEY, binding.eighthLevel.id)
-    }
-
-    private fun fillNinthLevel() {
-        fillLevels(EIGHTH_LEVEL_KEY, NINTH_LEVEL_KEY, binding.ninethLevel.id)
-    }
-
-    private fun fillTenthLevel() {
-        fillLevels(NINTH_LEVEL_KEY, TENTH_LEVEL_KEY, binding.tenthLevel.id)
-    }
-
-    private fun fillLevels(previousLevel:String, currentLevel:String, id: Int) {
-        if (verifySharedPref(previousLevel) && getTextView(binding.enterNumber.id).text.isNotEmpty()){
+    private fun fillLevel(previousLevel:String, currentLevel:String, view: TextView) {
+        if (verifySharedPref(previousLevel) && binding.enterNumber.text.isNotEmpty()){
             val tmpList = compareLevels(getList(previousLevel), getList(TMP_LIST))
             setList(tmpList, currentLevel)
-            getTextView(id).text = getList(currentLevel)?.replace(",", " ")
+            view.text = getList(currentLevel)?.replace(",", " ")
             binding.saveNumbers.isEnabled = true
             binding.addLevels.isEnabled = false
         }else
-            getTextView(id).text = EMPTY_LIST_TEXT
+            view.text = EMPTY_LIST_TEXT
 
-    }
-
-    private fun getTextView(id: Int) = binding.root.findViewById<TextView>(id)
-
-    private fun saveNumbersToTmpList() {
-        val textFromInput = binding.enterNumber.text.toString()
-        if (textFromInput.isNotEmpty()){
-            setList(textFromInput, TMP_LIST)
-            binding.saveNumbers.isEnabled = false
-            binding.addLevels.isEnabled = true
-        }else
-            setToastMessage()
-    }
-
-    private fun setList(stringWithNumbers: String?, listKey: String) {
-        val editor = setSharedPreferences().edit()
-        editor.putString(listKey, stringWithNumbers)
-        editor.apply()
-    }
-
-    private fun getList(listName: String): String? {
-        return setSharedPreferences().getString(listName, null)
     }
 
     private fun compareLevels(
@@ -127,7 +113,7 @@ class LevelsActivity : AppCompatActivity() {
         listB: String?,
     ): String {
 
-        if (listA!!.isNotEmpty()){
+        if (listA!!.isNotEmpty() && listA != EMPTY_LIST_TEXT){
             val level = listA.split(",").map { it.toInt() }.toMutableList()
             val currentDraw = listB?.split(",")?.map { it.toInt() }?.toList()
             val copyOfLevel = level.toMutableList()
@@ -143,13 +129,10 @@ class LevelsActivity : AppCompatActivity() {
             }
 
             return copyOfLevel.toString().replace(" ", "").removeSurrounding("[", "]")
-        }else
+        }else {
             return EMPTY_LIST_TEXT
+        }
 
-    }
-
-    private fun setSharedPreferences(): SharedPreferences {
-        return getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
     }
 
     private fun verifySharedPref(key: String): Boolean {
@@ -158,16 +141,32 @@ class LevelsActivity : AppCompatActivity() {
         return prefKeyName != null
     }
 
+    private fun getList(listName: String): String? {
+        return setSharedPreferences().getString(listName, null)
+    }
+
+    private fun setList(stringWithNumbers: String?, listKey: String) {
+        val editor = setSharedPreferences().edit()
+        editor.putString(listKey, stringWithNumbers)
+        editor.apply()
+    }
+
+    private fun getTextView(id: Int) = binding.root.findViewById<TextView>(id)
+
+    private fun setSharedPreferences(): SharedPreferences {
+        return getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
+    }
+
     private fun setToastMessage() {
         val emptySaveNumbersInput = Toast.makeText(applicationContext, NO_NUMBERS_INPUT, Toast.LENGTH_SHORT)
         emptySaveNumbersInput.show()
     }
 
-    private fun getNumbersFromLottoService() {
+    /*private fun getNumbersFromLottoService() {
         viewModelScope.launch{
             val numbers = LottoApi.retrofitService.getLatestMultiMultiNumbers()
         }
-    }
+    }*/
 
     private fun EditText.clear() {text.clear()}
 
