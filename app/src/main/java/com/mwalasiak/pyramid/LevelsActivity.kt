@@ -22,16 +22,15 @@ class LevelsActivity : AppCompatActivity() {
         binding.saveNumbers.setOnClickListener { saveNumbersToTmpList() }
         binding.addLevels.setOnClickListener { fillAllLevels() }
         //binding.getNumbersFromLottoService.setOnClickListener { getNumbersFromLottoService() }
-
     }
 
     private fun saveNumbersToTmpList() {
         val textFromInput = binding.enterNumber.text.toString()
-        if (textFromInput.isNotEmpty()){
+        if (textFromInput.isNotEmpty()) {
             setList(textFromInput, TMP_LIST)
             binding.saveNumbers.isEnabled = false
             binding.addLevels.isEnabled = true
-        }else
+        } else
             setToastMessage()
     }
 
@@ -93,29 +92,27 @@ class LevelsActivity : AppCompatActivity() {
             binding.addLevels.isEnabled = false
         } else
             binding.firstLevel.text = EMPTY_LIST_TEXT
-
     }
 
-    private fun fillLevel(previousLevel:String, currentLevel:String, view: TextView) {
-        if (verifySharedPref(previousLevel) && binding.enterNumber.text.isNotEmpty()){
+    private fun fillLevel(previousLevel: String, currentLevel: String, view: TextView) {
+        if (verifySharedPref(previousLevel) && binding.enterNumber.text.isNotEmpty()) {
             val tmpList = compareLevels(getList(previousLevel), getList(TMP_LIST))
             setList(tmpList, currentLevel)
             view.text = getList(currentLevel)?.replace(",", " ")
             binding.saveNumbers.isEnabled = true
             binding.addLevels.isEnabled = false
-        }else
+        } else
             view.text = EMPTY_LIST_TEXT
-
     }
 
     private fun compareLevels(
-        listA: String?,
-        listB: String?,
+        numbersFromLevel: String?,
+        numbersFromCurrentDraw: String?,
     ): String {
 
-        if (listA!!.isNotEmpty() && listA != EMPTY_LIST_TEXT){
-            val level = listA.split(",").map { it.toInt() }.toMutableList()
-            val currentDraw = listB?.split(",")?.map { it.toInt() }?.toList()
+        if (numbersFromLevel!!.isNotEmpty() && numbersFromLevel != EMPTY_LIST_TEXT) {
+            val level = numbersFromLevel.split(",").map { it.toInt() }.toMutableList()
+            val currentDraw = numbersFromCurrentDraw?.split(",")?.map { it.toInt() }?.toList()
             val copyOfLevel = level.toMutableList()
 
             for (i in level.indices) {
@@ -129,10 +126,9 @@ class LevelsActivity : AppCompatActivity() {
             }
 
             return copyOfLevel.toString().replace(" ", "").removeSurrounding("[", "]")
-        }else {
+        } else {
             return EMPTY_LIST_TEXT
         }
-
     }
 
     private fun verifySharedPref(key: String): Boolean {
@@ -151,14 +147,13 @@ class LevelsActivity : AppCompatActivity() {
         editor.apply()
     }
 
-    private fun getTextView(id: Int) = binding.root.findViewById<TextView>(id)
-
     private fun setSharedPreferences(): SharedPreferences {
         return getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
     }
 
     private fun setToastMessage() {
-        val emptySaveNumbersInput = Toast.makeText(applicationContext, NO_NUMBERS_INPUT, Toast.LENGTH_SHORT)
+        val emptySaveNumbersInput =
+            Toast.makeText(applicationContext, NO_NUMBERS_INPUT, Toast.LENGTH_SHORT)
         emptySaveNumbersInput.show()
     }
 
@@ -168,7 +163,9 @@ class LevelsActivity : AppCompatActivity() {
         }
     }*/
 
-    private fun EditText.clear() {text.clear()}
+    private fun EditText.clear() {
+        text.clear()
+    }
 
     companion object {
         const val FILE_NAME = "Levels"
