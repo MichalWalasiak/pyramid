@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/levels_activity_padding"
     tools:context=".LevelsActivity">
-
 
     <EditText
         android:id="@+id/enterNumber"
@@ -13,28 +13,25 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/barrier2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.130" />
+        app:layout_constraintStart_toStartOf="@id/saveNumbers"
+        app:layout_constraintTop_toBottomOf="@id/saveNumbers" />
 
     <TextView
         android:id="@+id/firstLevel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        app:autoSizeTextType="uniform"
-        app:autoSizeMinTextSize="14sp"
         app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="14sp"
         app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/secondLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/barrier2"
-        app:layout_constraintTop_toBottomOf="@+id/barrier3"
-        app:layout_constraintVertical_bias="0.020"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/enterNumber"
         app:layout_constraintVertical_chainStyle="packed"
         tools:ignore="TextViewEdits" />
 
@@ -45,16 +42,14 @@
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        app:autoSizeTextType="uniform"
-        app:autoSizeMinTextSize="14sp"
         app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="14sp"
         app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/thirdLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstLevel"
-        app:layout_constraintVertical_bias="0.020"
         tools:ignore="TextViewEdits" />
 
     <TextView
@@ -64,16 +59,14 @@
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        app:autoSizeTextType="uniform"
-        app:autoSizeMinTextSize="14sp"
         app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="14sp"
         app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/fourthLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/secondLevel"
-        app:layout_constraintVertical_bias="0.020"
         tools:ignore="TextViewEdits" />
 
     <TextView
@@ -83,16 +76,14 @@
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        app:autoSizeTextType="uniform"
-        app:autoSizeMinTextSize="14sp"
         app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="14sp"
         app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/fifthLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thirdLevel"
-        app:layout_constraintVertical_bias="0.020"
         tools:ignore="TextViewEdits" />
 
     <TextView
@@ -102,16 +93,14 @@
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        app:autoSizeTextType="uniform"
-        app:autoSizeMinTextSize="14sp"
         app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="14sp"
         app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/sixthLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fourthLevel"
-        app:layout_constraintVertical_bias="0.020"
         tools:ignore="TextViewEdits" />
 
     <TextView
@@ -121,16 +110,14 @@
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        app:autoSizeTextType="uniform"
-        app:autoSizeMinTextSize="14sp"
         app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="14sp"
         app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/seventhLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fifthLevel"
-        app:layout_constraintVertical_bias="0.020"
         tools:ignore="TextViewEdits" />
 
     <TextView
@@ -140,16 +127,14 @@
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        app:autoSizeTextType="uniform"
-        app:autoSizeMinTextSize="14sp"
         app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="14sp"
         app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/eighthLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sixthLevel"
-        app:layout_constraintVertical_bias="0.020"
         tools:ignore="TextViewEdits" />
 
     <TextView
@@ -159,16 +144,14 @@
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        app:autoSizeTextType="uniform"
-        app:autoSizeMinTextSize="14sp"
         app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="14sp"
         app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/ninethLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seventhLevel"
-        app:layout_constraintVertical_bias="0.020"
         tools:ignore="TextViewEdits" />
 
     <TextView
@@ -178,16 +161,14 @@
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        app:autoSizeTextType="uniform"
-        app:autoSizeMinTextSize="14sp"
         app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="14sp"
         app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/tenthLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eighthLevel"
-        app:layout_constraintVertical_bias="0.020"
         tools:ignore="TextViewEdits" />
 
     <TextView
@@ -197,69 +178,38 @@
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        app:autoSizeTextType="uniform"
-        app:autoSizeMinTextSize="14sp"
         app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="14sp"
         app:autoSizeStepGranularity="1sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ninethLevel"
-        app:layout_constraintVertical_bias="0.020"
         tools:ignore="TextViewEdits" />
-
 
     <Button
         android:id="@+id/addLevels"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:layout_width="@dimen/level_buttons_width"
+        android:layout_height="@dimen/levels_buttons_height"
         android:text="@string/add_levels"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.950"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.050" />
-
+        app:layout_constraintTop_toTopOf="@id/saveNumbers" />
 
     <Button
         android:id="@+id/getNumbersFromLottoService"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:layout_width="@dimen/level_buttons_width"
+        android:layout_height="@dimen/levels_buttons_height"
+        android:layout_marginTop="8dp"
         android:text="@string/get_latest_numbers"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.950"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.150" />
+        app:layout_constraintTop_toTopOf="@id/enterNumber" />
 
     <Button
         android:id="@+id/saveNumbers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/save_numbers"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.030"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.050" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="getNumbersFromLottoService" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="left"
-        app:constraint_referenced_ids="saveNumbers" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
