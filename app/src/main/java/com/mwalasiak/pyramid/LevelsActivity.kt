@@ -5,23 +5,35 @@ import android.content.SharedPreferences
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.lifecycleScope
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.mwalasiak.pyramid.api.LottoApiService
+import com.mwalasiak.pyramid.api.RetrofitClientFactory
 import com.mwalasiak.pyramid.databinding.ActivityLevelsViewBinding
+import kotlinx.coroutines.launch
 
 
 class LevelsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLevelsViewBinding
+    private lateinit var apiService: LottoApiService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLevelsViewBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        createApiService()
+
         binding.saveNumbers.setOnClickListener { saveNumbersToTmpList() }
         binding.addLevels.setOnClickListener { fillAllLevels() }
-        //binding.getNumbersFromLottoService.setOnClickListener { getNumbersFromLottoService() }
+        binding.getNumbersFromLottoService.setOnClickListener { getNumbersFromLottoService() }
+    }
+
+    private fun createApiService() {
+        apiService = RetrofitClientFactory.create().create(LottoApiService::class.java)
     }
 
     private fun saveNumbersToTmpList() {
@@ -157,11 +169,16 @@ class LevelsActivity : AppCompatActivity() {
         emptySaveNumbersInput.show()
     }
 
-    /*private fun getNumbersFromLottoService() {
-        viewModelScope.launch{
-            val numbers = LottoApi.retrofitService.getLatestMultiMultiNumbers()
+    private fun getNumbersFromLottoService() {
+        lifecycleScope.launch {
+            try {
+                val results = apiService.getLatestMultiMultiNumbers()
+                println("Numbers got: ${results.lotto.numerki}")
+            } catch (e: Exception) {
+                println("Something went wrong ${e}")
+            }
         }
-    }*/
+    }
 
     private fun EditText.clear() {
         text.clear()
