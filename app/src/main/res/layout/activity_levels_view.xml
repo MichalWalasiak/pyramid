@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".LevelsActivity">
 
+
     <EditText
         android:id="@+id/enterNumber"
         android:layout_width="wrap_content"
@@ -13,172 +14,201 @@
         android:ems="10"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.200"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/barrier2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintVertical_bias="0.130" />
 
     <TextView
         android:id="@+id/firstLevel"
-        android:layout_width="630dp"
-        android:layout_height="40dp"
-        android:ems="10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintBottom_toTopOf="@+id/secondLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.400"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterNumber"
-        app:layout_constraintVertical_bias="0.020" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintTop_toBottomOf="@+id/barrier3"
+        app:layout_constraintVertical_bias="0.020"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="TextViewEdits" />
 
     <TextView
         android:id="@+id/secondLevel"
-        android:layout_width="630dp"
-        android:layout_height="40dp"
-        android:ems="10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintBottom_toTopOf="@+id/thirdLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.400"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/barrier2"
         app:layout_constraintTop_toBottomOf="@+id/firstLevel"
-        app:layout_constraintVertical_bias="0.020" />
+        app:layout_constraintVertical_bias="0.020"
+        tools:ignore="TextViewEdits" />
 
     <TextView
         android:id="@+id/thirdLevel"
-        android:layout_width="630dp"
-        android:layout_height="40dp"
-        android:ems="10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintBottom_toTopOf="@+id/fourthLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.400"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/barrier2"
         app:layout_constraintTop_toBottomOf="@+id/secondLevel"
-        app:layout_constraintVertical_bias="0.020" />
+        app:layout_constraintVertical_bias="0.020"
+        tools:ignore="TextViewEdits" />
 
     <TextView
         android:id="@+id/fourthLevel"
-        android:layout_width="630dp"
-        android:layout_height="40dp"
-        android:ems="10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintBottom_toTopOf="@+id/fifthLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.400"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/barrier2"
         app:layout_constraintTop_toBottomOf="@+id/thirdLevel"
-        app:layout_constraintVertical_bias="0.020" />
+        app:layout_constraintVertical_bias="0.020"
+        tools:ignore="TextViewEdits" />
 
     <TextView
         android:id="@+id/fifthLevel"
-        android:layout_width="630dp"
-        android:layout_height="40dp"
-        android:ems="10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintBottom_toTopOf="@+id/sixthLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.400"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/barrier2"
         app:layout_constraintTop_toBottomOf="@+id/fourthLevel"
-        app:layout_constraintVertical_bias="0.020" />
+        app:layout_constraintVertical_bias="0.020"
+        tools:ignore="TextViewEdits" />
 
     <TextView
         android:id="@+id/sixthLevel"
-        android:layout_width="630dp"
-        android:layout_height="40dp"
-        android:ems="10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintBottom_toTopOf="@+id/seventhLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.400"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/barrier2"
         app:layout_constraintTop_toBottomOf="@+id/fifthLevel"
-        app:layout_constraintVertical_bias="0.020" />
-
+        app:layout_constraintVertical_bias="0.020"
+        tools:ignore="TextViewEdits" />
 
     <TextView
         android:id="@+id/seventhLevel"
-        android:layout_width="630dp"
-        android:layout_height="40dp"
-        android:ems="10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintBottom_toTopOf="@+id/eighthLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.400"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/barrier2"
         app:layout_constraintTop_toBottomOf="@+id/sixthLevel"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.020"
+        tools:ignore="TextViewEdits" />
 
     <TextView
         android:id="@+id/eighthLevel"
-        android:layout_width="630dp"
-        android:layout_height="40dp"
-        android:ems="10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintBottom_toTopOf="@+id/ninethLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.400"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/seventhLevel"
-        app:layout_constraintVertical_bias="0.167" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintTop_toBottomOf="@+id/seventhLevel"
+        app:layout_constraintVertical_bias="0.020"
+        tools:ignore="TextViewEdits" />
 
     <TextView
         android:id="@+id/ninethLevel"
-        android:layout_width="630dp"
-        android:layout_height="40dp"
-        android:ems="10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeStepGranularity="1sp"
+        app:layout_constraintBottom_toTopOf="@+id/tenthLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.400"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/eighthLevel"
-        app:layout_constraintVertical_bias="0.161" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintTop_toBottomOf="@+id/eighthLevel"
+        app:layout_constraintVertical_bias="0.020"
+        tools:ignore="TextViewEdits" />
 
     <TextView
         android:id="@+id/tenthLevel"
-        android:layout_width="630dp"
-        android:layout_height="40dp"
-        android:ems="10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:inputType="text"
         android:textAlignment="viewStart"
-        android:textSize="19sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeStepGranularity="1sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.400"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ninethLevel"
-        app:layout_constraintVertical_bias="0.225" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/barrier2"
+        app:layout_constraintTop_toBottomOf="@+id/ninethLevel"
+        app:layout_constraintVertical_bias="0.020"
+        tools:ignore="TextViewEdits" />
+
 
     <Button
         android:id="@+id/addLevels"
@@ -216,5 +246,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.050" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="getNumbersFromLottoService" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="saveNumbers" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

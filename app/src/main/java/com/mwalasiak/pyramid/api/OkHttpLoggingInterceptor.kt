@@ -3,7 +3,6 @@ package com.mwalasiak.pyramid.api
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class OkHttpLoggingInterceptor {
 
@@ -14,11 +13,11 @@ class OkHttpLoggingInterceptor {
 
     private val baseUrl = "https://www.lotto.pl/api/lotteries/draw-results/"
 
-    fun getInstance() : Retrofit {
+    /*fun getInstance() : Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
-    }
+    }*/
 }
